@@ -6,12 +6,14 @@
 {
   <p>There are no orders in the list.</p>
 }
+
 <ul>
   @foreach (Order order in Model)
   {
-      <li>@order.Title</li>
+    <li>@order.Title</li>
   }
 </ul>
+
 
 <a href="/orders/new">Add new order</a>
 
