@@ -25,6 +25,13 @@ namespace VendorOrderTracker.Controllers
       Order newOrder = new Order(title, description, price, date);
       return RedirectToAction("Index");
     }
+
+    [HttpPost("/orders/delete")]
+    public ActionResult DeleteAll()
+    {
+      Order.ClearAll();
+      return View();
+    }
   }
 
 }
