@@ -10,10 +10,10 @@
 <ol>
   @foreach (Order order in @Model["orders"]  )
   {
-      <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a> (@order.Date)</li>
+    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a> (@order.Date)</li>
   }
 </ol>
 
 <p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
-<p><a href='/vendors'>Return to vendors list</a></p>
-<p><a href="/">Return to Home Page</a></p>
+<p><a href='/vendors'>Back to Vendors Page</a></p>
+<p><a href="/">Back to Home Page</a></p>

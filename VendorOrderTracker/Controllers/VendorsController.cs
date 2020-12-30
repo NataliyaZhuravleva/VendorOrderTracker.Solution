@@ -50,10 +50,7 @@ namespace VendorOrderTracker.Controllers
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
       model.Add("vendor", foundVendor);
-
       return View("Show", model);
     }
-
-
   }
 }
