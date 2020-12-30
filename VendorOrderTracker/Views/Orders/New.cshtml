@@ -1,4 +1,5 @@
-<form action="/orders" method="post">
+<form action="vendors/@Model.Id/orders" method="post">
+  <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
   <label for="title">Add a new title</label>
   <input id="title" name="title" type="text">
  <label for="description">Add a new description</label>
