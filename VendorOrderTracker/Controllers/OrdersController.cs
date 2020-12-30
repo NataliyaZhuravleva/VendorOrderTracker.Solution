@@ -4,13 +4,19 @@ using VendorOrderTracker.Models;
 
 namespace VendorOrderTracker.Controllers
 {
-  public class OrdersController:Controller
+  public class OrdersController : Controller
   {
     [HttpGet("/orders")]
     public ActionResult Index()
     {
-      List<Order> allOrders=Order.GetAll();
+      List<Order> allOrders = Order.GetAll();
       return View(allOrders);
+    }
+
+    [HttpGet("/orders/new")]
+    public ActionResult New()
+    {
+      return View();
     }
   }
 
