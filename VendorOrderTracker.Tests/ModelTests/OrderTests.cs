@@ -48,6 +48,7 @@ namespace VendorOrderTracker.Tests
 
       CollectionAssert.AreEqual(newList, result);
     }
+
     [TestMethod]
     public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
     {
@@ -60,6 +61,26 @@ namespace VendorOrderTracker.Tests
       int result = newOrder.Id;
 
       Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectOrder_Order()
+    {
+      string title1 = "Standard";
+      string description1 = "Standard order bread";
+      float price1 = 3.5F;
+      string date1 = "01/01/2020";
+      Order newOrder1 = new Order(title1, description1, price1, date1);
+
+      string title2 = "Expanded";
+      string description2 = "Expanded order bread and pastry";
+      float price2 = 8.99F;
+      string date2 = "01/02/2020";
+      Order newOrder2 = new Order(title2, description2, price2, date2);
+
+      Order result = new Order ("Incorrect test order", "test", 4, "test");//Order.Find(2);
+
+      Assert.AreEqual(newOrder2, result);
     }
   }
 }
