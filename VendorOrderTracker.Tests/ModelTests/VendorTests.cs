@@ -6,12 +6,17 @@ using VendorOrderTracker.Models;
 namespace VendorOrderTracker.Tests
 {
   [TestClass]
-  public class VendorTest
+  public class VendorTest : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor=new Vendor("test vendor", "test vendor description");
+      Vendor newVendor = new Vendor("test vendor", "test vendor description");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -23,7 +28,7 @@ namespace VendorOrderTracker.Tests
       Vendor newVendor = new Vendor(name, description);
 
       string result = newVendor.Name;
-      
+
       Assert.AreEqual(name, result);
     }
 
@@ -36,7 +41,7 @@ namespace VendorOrderTracker.Tests
 
       int result = newVendor.Id;
 
-      Assert.AreEqual(1,result);
+      Assert.AreEqual(1, result);
     }
   }
 }
