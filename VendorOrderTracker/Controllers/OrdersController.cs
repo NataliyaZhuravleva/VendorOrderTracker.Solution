@@ -18,6 +18,13 @@ namespace VendorOrderTracker.Controllers
     {
       return View();
     }
+
+    [HttpPost("/orders")]
+    public ActionResult Create(string title, string description, float price, string date)
+    {
+      Order newOrder = new Order(title, description, price, date);
+      return RedirectToAction("Index");
+    }
   }
 
 }
