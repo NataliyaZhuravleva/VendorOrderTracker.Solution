@@ -48,5 +48,18 @@ namespace VendorOrderTracker.Tests
 
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      string title = "Standard";
+      string description = "Standard order bread";
+      float price = 3.5F;
+      string date = "01/01/2020";
+      Order newOrder = new Order(title, description, price, date);
+
+      int result = 0;//newOrder.Id;
+
+      Assert.AreEqual(1, result);
+    }
   }
 }
