@@ -78,7 +78,7 @@ namespace VendorOrderTracker.Tests
       string date2 = "01/02/2020";
       Order newOrder2 = new Order(title2, description2, price2, date2);
 
-      Order result = new Order ("Incorrect test order", "test", 4, "test");//Order.Find(2);
+      Order result = Order.Find(2);
 
       Assert.AreEqual(newOrder2, result);
     }
