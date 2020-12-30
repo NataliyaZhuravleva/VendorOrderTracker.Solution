@@ -6,25 +6,11 @@ namespace VendorOrderTracker.Controllers
 {
   public class OrdersController : Controller
   {
-    [HttpGet("/vendors/{vendorId/orders/new")]
+    [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
       Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
-    }
-
-    [HttpPost("/orders")]
-    public ActionResult Create(string title, string description, float price, string date)
-    {
-      Order newOrder = new Order(title, description, price, date);
-      return RedirectToAction("Index");
-    }
-
-    [HttpPost("/orders/delete")]
-    public ActionResult DeleteAll()
-    {
-      Order.ClearAll();
-      return View();
     }
 
     [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
@@ -36,6 +22,13 @@ namespace VendorOrderTracker.Controllers
       model.Add("order", order);
       model.Add("vendor", vendor);
       return View(model);
+    }
+
+    [HttpPost("/orders/delete")]
+    public ActionResult DeleteAll()
+    {
+      Order.ClearAll();
+      return View();
     }
   }
 

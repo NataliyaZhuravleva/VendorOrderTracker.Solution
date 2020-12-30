@@ -1,12 +1,13 @@
-<form action="vendors/@Model.Id/orders" method="post">
+<h1>Add a new order to @Model.Name</h1>
+<form action="/vendors/@Model.Id/orders" method="post">
   <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
   <label for="title">Add a new title</label>
   <input id="title" name="title" type="text">
- <label for="description">Add a new description</label>
+  <label for="description">Add a new description</label>
   <input id="description" name="description" type="text">
   <label for="price">Add price</label>
   <input id="price" name="price" type="number" step="0.01">
   <label for="date">Add date</label>
   <input id="date" name="date" type="text">
-  <button type="submit">Submit</button>
+  <button type="submit">Add order</button>
 </form>
