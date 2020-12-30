@@ -8,6 +8,7 @@ namespace VendorOrderTracker.Tests
   [TestClass]
   public class OrderTests
   {
+    
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -15,10 +16,12 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
-    // [TestMethod]
-    // public void GetDescription_ReturnsDescription_String()
-    // {
-    //   string description=""
-    // }
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_OrderList()
+    {
+      List<Order> newList=new List<Order>{};
+      List<Order> result=Order.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
