@@ -57,7 +57,7 @@ namespace VendorOrderTracker.Tests
       string date = "01/01/2020";
       Order newOrder = new Order(title, description, price, date);
 
-      int result = 0;//newOrder.Id;
+      int result = newOrder.Id;
 
       Assert.AreEqual(1, result);
     }
