@@ -27,7 +27,7 @@ namespace VendorOrderTracker.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/vendors/{id}")]
+    [HttpGet("/vendors/{Id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -36,6 +36,16 @@ namespace VendorOrderTracker.Controllers
       model.Add("vendor", selectedVendor);
       model.Add("orders", vendorOrders);
       return View(model);
+    }
+
+    //This one delete all orders within a given Vendor
+    [HttpPost("/vendors/{id}/")]
+    public ActionResult Destroy(int id)
+    {
+      Vendor foundVendor = Vendor.Find(id);
+      List<Order> vendorOrders =  foundVendor.Orders;
+      vendorOrders.Clear();
+      return View("Destroy", foundVendor);
     }
 
     // This one creates new Orders within a given Vendor, 
