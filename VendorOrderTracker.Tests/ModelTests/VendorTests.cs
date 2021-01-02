@@ -97,5 +97,32 @@ namespace VendorOrderTracker.Tests
 
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+      public void DeleteOrder_DeleteOrderAssociatedWithVendor_OrderList()
+    {
+      string order1Title = "Standard";
+      string order1Description = "Standard order bread";
+      float order1Price = 3.5F;
+      string order1Date = "01/01/2020";
+      Order newOrder1 = new Order(order1Title, order1Description, order1Price, order1Date);
+      string order2Title = "Expanded";
+      string order2Description = "Expanded order pastry";
+      float order2Price = 4.5F;
+      string order2Date = "01/01/2020";
+      Order newOrder2 = new Order(order2Title, order2Description, order2Price, order2Date);
+      List<Order> newList = new List<Order>{newOrder2};
+
+      string vendorName = "Test Vendor";
+      string vendorDescription = "Test Vendor Description";
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
+      newVendor.AddOrder(newOrder1);
+      newVendor.AddOrder(newOrder2);
+      newVendor.DeleteOrder(newOrder1);
+
+      List<Order> result = newVendor.Orders;
+
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
