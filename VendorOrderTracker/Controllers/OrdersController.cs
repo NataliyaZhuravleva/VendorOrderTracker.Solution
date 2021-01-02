@@ -23,5 +23,14 @@ namespace VendorOrderTracker.Controllers
       model.Add("vendor", vendor);
       return View(model);
     }
+
+    [HttpPost("/vendors/{vendorId}/orders/{orderId}")]
+    public ActionResult Destroy()
+    {
+      //Vendor foundVendor=Vendor.Find(vendorId);
+      //Order order=Order.Find(orderId);
+      Order.ClearAll();
+      return View();
+    }
   }
 }
