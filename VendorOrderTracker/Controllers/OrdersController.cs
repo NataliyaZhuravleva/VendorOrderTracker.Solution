@@ -25,11 +25,12 @@ namespace VendorOrderTracker.Controllers
     }
 
     [HttpPost("/vendors/{vendorId}/orders/{orderId}")]
-    public ActionResult Destroy()
+    public ActionResult Destroy(int vendorId, int orderId)
     {
-      //Vendor foundVendor=Vendor.Find(vendorId);
-      //Order order=Order.Find(orderId);
-      Order.ClearAll();
+      Order foundorder=Order.Find(orderId);
+      Vendor foundVendor = Vendor.Find(vendorId);
+      foundVendor.DeleteOrder(foundorder);
+      
       return View();
     }
   }
